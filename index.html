@@ -3,41 +3,177 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Stopwatch App</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>SkillCraft Landing Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #e3f2fd;
+      transition: background-color 0.7s ease;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    header.scrolled {
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #3b82f6;
+      transform: scale(1.05);
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #3b82f6;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+  </style>
 </head>
-<body>
-  <div class="container">
-    <h1>⏱️ Stopwatch</h1>
-    <div id="display">00:00:00</div>
-    <div class="buttons">
-      <button onclick="start()">Start</button>
-      <button onclick="pause()">Pause</button>
-      <button onclick="reset()">Reset</button>
-      <button onclick="lap()">Lap</button>
+<body class="text-gray-800">
+
+  <!-- NAVBAR -->
+  <header id="navbar" class="fixed w-full z-50 bg-white bg-opacity-80 backdrop-blur-md transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <h1 class="text-xl font-semibold text-blue-600">SkillCraft Portfolio</h1>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="#home" class="nav-link font-medium">Home</a>
+        <a href="#about" class="nav-link font-medium">About</a>
+        <a href="#services" class="nav-link font-medium">Services</a>
+        <a href="#contact" class="nav-link font-medium">Contact</a>
+      </nav>
     </div>
-    <ul id="laps"></ul>
-  </div>
-  <script src="script.js"></script>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="home" data-bg="#e3f2fd" class="text-center px-6">
+    <div class="w-full">
+      <h2 class="text-4xl md:text-6xl font-bold text-blue-700 mb-4">Welcome to My Portfolio</h2>
+      <p class="text-lg md:text-xl text-gray-700 mb-6">
+        I specialize in modern web development, UI/UX design, and building seamless user experiences.
+      </p>
+      <a href="#contact" class="bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition">
+        Get In Touch
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" data-bg="#fef3c7" class="px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-6 text-blue-600">About Me</h3>
+      <p class="text-gray-700 text-lg">
+        I'm a passionate developer focused on building creative, responsive websites. I work with
+        HTML, CSS, JavaScript, TailwindCSS, and modern frontend technologies to deliver high-quality results.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services" data-bg="#d1fae5" class="px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-8 text-blue-600">Services</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition">
+          <h4 class="text-xl font-semibold mb-2">Web Design</h4>
+          <p class="text-gray-600">Clean, modern designs optimized for all screens and devices.</p>
+        </div>
+        <div class="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition">
+          <h4 class="text-xl font-semibold mb-2">Frontend Development</h4>
+          <p class="text-gray-600">Responsive and fast user interfaces using cutting-edge technologies.</p>
+        </div>
+        <div class="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition">
+          <h4 class="text-xl font-semibold mb-2">UI/UX Consulting</h4>
+          <p class="text-gray-600">Improving usability and interaction through smart design principles.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" data-bg="#ede9fe" class="px-6">
+    <div class="max-w-xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-4 text-blue-600">Contact Me</h3>
+      <p class="mb-6 text-gray-700">Got a project or idea? Let's work together.</p>
+      <form class="space-y-4">
+        <input type="text" placeholder="Name" class="w-full px-4 py-3 rounded border border-gray-300" />
+        <input type="email" placeholder="Email" class="w-full px-4 py-3 rounded border border-gray-300" />
+        <textarea rows="4" placeholder="Your message..." class="w-full px-4 py-3 rounded border border-gray-300"></textarea>
+        <button class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-blue-800 text-white py-6">
+    <div class="max-w-6xl mx-auto text-center px-4">
+      <p class="mb-2">© 2025 MyPortfolio. All rights reserved.</p>
+      <p>Built professionally after learning at <strong>SkillCraft Technology</strong>.</p>
+    </div>
+  </footer>
+
+  <!-- JS SCRIPT -->
   <script>
-  const gradients = [
-    "linear-gradient(to right, #0f2027, #203a43, #2c5364)",
-    "linear-gradient(to right, #1e130c, #9a8478)",
-    "linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b)",
-    "linear-gradient(to right, #2c3e50, #3498db)",
-    "linear-gradient(to right, #000000, #434343)",
-    "linear-gradient(to right, #360033, #0b8793)"
-  ];
+    const navbar = document.getElementById("navbar");
+    const sections = document.querySelectorAll("section");
 
-  let index = 0;
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.5,
+    };
 
-  document.querySelectorAll('.buttons button').forEach(button => {
-    button.addEventListener('click', () => {
-      index = (index + 1) % gradients.length;
-      document.body.style.background = gradients[index];
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const bg = entry.target.getAttribute("data-bg");
+          document.body.style.backgroundColor = bg;
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach((section) => observer.observe(section));
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 10) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
     });
-  });
-</script>
-
+  </script>
 </body>
 </html>
